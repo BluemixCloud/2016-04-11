@@ -195,18 +195,24 @@ npm test # to run all tests
   - Highcharts Analytical Charting, http://www.highcharts.com/
   - [Fullstack Template](https://hub.jazz.net/project/chyld/full-stack-template)
 
-#### Project 3
-  - Microservice Architecture
+#### Project 2
+  - Add items to a Trello ToDo List using SMS
   - Prerequisites
     - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
-    - [OpenWhisk](https://new-console.ng.bluemix.net/openwhisk/)
-    - [Twitch](https://api.twitch.tv/kraken/games/top)
-  - Fork and Clone the [Fullstack Template](https://hub.jazz.net/project/chyld/full-stack-template)
-  - In Angular, create 3 buttons
-  - Button 1: Angular -> NodeRed -> OpenWhisk (squares an input number along each step)
-  - Button 2: Angular -> Express (factorial of input number)
-  - Button 3: Angular -> OpenWhisk (computes volume from three numbers)
-  - Button 4: Show a list of top games on Twitch
+    - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
+    - [Stamplay](https://stamplay.com/)
+    - [Trello](https://trello.com/)
+
+  1. NodeRED: Make an HTTP `post /todo`. Test with `http` client.
+  2. Twilio: Edit your Phone Number. Change messaging to `post` to the NodeRED HTTP endpoint.
+  3. Send a text message to Twilio. The data should appear in NodeRED.
+  4. Stamplay: Make a webhook, call it `todo`. Test the webhook with `http` client.
+  5. NodeRED: Call the webhook using the `http request` node. No data massaging necessary.
+  6. Send another text message. The response from the webhook should appear in the debug window.
+  7. Trello: Create a Board
+  8. Trello: Create a List
+  9. Stamplay: Create a Task. The Task will wire up the webhook and the Trello board
+  10. Send a text message. The message should appear in your Trello board list.
 
 #### Project 4
   - Twitter Sentiment Analysis
@@ -280,26 +286,6 @@ function drawChart(tweets){
 }
 ```
 
-
-#### Project 2
-  - Add items to a Trello ToDo List using SMS
-  - Prerequisites
-    - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
-    - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
-    - [Stamplay](https://stamplay.com/)
-    - [Trello](https://trello.com/)
-
-  1. NodeRED: Make an HTTP `post /todo`. Test with `http` client.
-  2. Twilio: Edit your Phone Number. Change messaging to `post` to the NodeRED HTTP endpoint.
-  3. Send a text message to Twilio. The data should appear in NodeRED.
-  4. Stamplay: Make a webhook, call it `todo`. Test the webhook with `http` client.
-  5. NodeRED: Call the webhook using the `http request` node. No data massaging necessary.
-  6. Send another text message. The response from the webhook should appear in the debug window.
-  7. Trello: Create a Board
-  8. Trello: Create a List
-  8. Stamplay: Create a Task. The Task will wire up the webhook and the Trello board
-  9. Send a text message. The message should appear in your Trello board list.
-  
 #### Project 5
   - SMS Famous Movie Quote Service
   - Prerequisites
