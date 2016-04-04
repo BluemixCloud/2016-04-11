@@ -31,6 +31,8 @@
   - About Galvanize, http://www.galvanize.com/
   - Course Overview
   - Distribute Badges
+  - Hackathon Videos
+    - https://www.youtube.com/playlist?list=PLHtrWoWKwFxGwbKzdpg6AWiQkapH-xpMm
 
 #### Bluemix Garage
   - https://www.ibm.com/cloud-computing/bluemix/garage/
