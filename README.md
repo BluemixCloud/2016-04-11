@@ -204,24 +204,24 @@ npm test # to run all tests
     - Bootstrap
 
 #### Project 2
-  - ABC
-  - Prerequisites
-    - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
-    - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
-    - [Stamplay](https://stamplay.com/)
-    - [Trello](https://trello.com/)
+- ABC
+- Prerequisites
+  - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
+  - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
+  - [Stamplay](https://stamplay.com/)
+  - [Trello](https://trello.com/)
 
 
-  1. NodeRED: Make an HTTP `post /todo`. Test with `http` client.
-  2. Twilio: Edit your Phone Number. Change messaging to `post` to the NodeRED HTTP endpoint.
-  3. Send a text message to Twilio. The data should appear in NodeRED.
-  4. Stamplay: Make a webhook, call it `todo`. Test the webhook with `http` client.
-  5. NodeRED: Call the webhook using the `http request` node. No data massaging necessary.
-  6. Send another text message. The response from the webhook should appear in the debug window.
-  7. Trello: Create a Board
-  8. Trello: Create a List
-  9. Stamplay: Create a Task. The Task will wire up the webhook and the Trello board
-  10. Send a text message. The message should appear in your Trello board list.
+1. NodeRED: Make an HTTP `post /todo`. Test with `http` client.
+2. Twilio: Edit your Phone Number. Change messaging to `post` to the NodeRED HTTP endpoint.
+3. Send a text message to Twilio. The data should appear in NodeRED.
+4. Stamplay: Make a webhook, call it `todo`. Test the webhook with `http` client.
+5. NodeRED: Call the webhook using the `http request` node. No data massaging necessary.
+6. Send another text message. The response from the webhook should appear in the debug window.
+7. Trello: Create a Board
+8. Trello: Create a List
+9. Stamplay: Create a Task. The Task will wire up the webhook and the Trello board
+10. Send a text message. The message should appear in your Trello board list.
 
 #### Project 4
   - Twitter Sentiment Analysis
