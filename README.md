@@ -204,6 +204,8 @@ npm test # to run all tests
     - Bootstrap
 
 #### Project 2
+
+  - ABC
   - Prerequisites
     - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
     - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
