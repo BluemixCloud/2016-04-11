@@ -227,6 +227,67 @@ Steps
 9. Stamplay: Create a Task. The Task will wire up the webhook and the Trello board
 10. Send a text message. The message should appear in your Trello board list.
 
+#### Project 3
+Display the Top Story from ANY Reddit Topic and Display in Slack
+
+- Prerequisites
+  - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
+  - [Slack](https://slack.com/)
+  - [Slack Outgoing Webhooks](https://api.slack.com/outgoing-webhooks)
+  - [OpenWhisk](https://new-console.ng.bluemix.net/openwhisk/)
+
+Steps
+
+1. If you are not an Administrator on Slack, [Create Your Team Account](https://slack.com/create)
+2. Sign into your Slack account and create a channel
+3. NodeRED: Create an `post /reddit`. Test from `http` client.
+4. Create an Outgoing Webhook on Slack. Use the `reddit` as the trigger word
+5. Send a message from your slack channel to NodeRED. You should have debugging info displayed.
+6. Create an OpenWhisk action. Deploy and Test it.
+
+```js
+var Request = require('request');
+
+function main(params){
+  var channel = params.channel;
+  var url = 'https://www.reddit.com/' + channel + '.json';
+  Request({url: url, json: true}, function(e, r, b){
+    console.log('error:', e);
+    console.log('status:', r.statusCode);
+    var first = b.data.children[0].data;
+    whisk.done({payload: {title: first.title, url: first.url}});
+  });
+
+  return whisk.async();
+}
+```
+
+7. NodeRED: Prepare the data before the call to OpenWhisk.
+
+
+```js
+var channel = msg.payload.text;
+
+channel = channel.replace(/reddit/g, '');
+channel = channel.trim();
+
+msg.payload = {channel: channel};
+
+return msg;
+```
+
+8. NodeRED: After the call to OpenWhisk, prepare the data to be sent back to your slack channel.
+
+```js
+var data = msg.payload.payload;
+
+msg.payload = {
+    text: data.title + ' ' + data.url
+};
+
+return msg;
+```
+
 #### Project 4
   - Twitter Sentiment Analysis
   - Prerequisites
