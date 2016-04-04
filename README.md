@@ -245,48 +245,48 @@ Steps
 5. Send a message from your slack channel to NodeRED. You should have debugging info displayed.
 6. Create an OpenWhisk action. Deploy and Test it.
 
-```js
-var Request = require('request');
+  ```js
+  var Request = require('request');
 
-function main(params){
-  var channel = params.channel;
-  var url = 'https://www.reddit.com/' + channel + '.json';
-  Request({url: url, json: true}, function(e, r, b){
-    console.log('error:', e);
-    console.log('status:', r.statusCode);
-    var first = b.data.children[0].data;
-    whisk.done({payload: {title: first.title, url: first.url}});
-  });
+  function main(params){
+    var channel = params.channel;
+    var url = 'https://www.reddit.com/' + channel + '.json';
+    Request({url: url, json: true}, function(e, r, b){
+      console.log('error:', e);
+      console.log('status:', r.statusCode);
+      var first = b.data.children[0].data;
+      whisk.done({payload: {title: first.title, url: first.url}});
+    });
 
-  return whisk.async();
-}
-```
+    return whisk.async();
+  }
+  ```
 
 7. NodeRED: Prepare the data before the call to OpenWhisk.
 
 
-```js
-var channel = msg.payload.text;
+  ```js
+  var channel = msg.payload.text;
 
-channel = channel.replace(/reddit/g, '');
-channel = channel.trim();
+  channel = channel.replace(/reddit/g, '');
+  channel = channel.trim();
 
-msg.payload = {channel: channel};
+  msg.payload = {channel: channel};
 
-return msg;
-```
+  return msg;
+  ```
 
 8. NodeRED: After the call to OpenWhisk, prepare the data to be sent back to your slack channel.
 
-```js
-var data = msg.payload.payload;
+  ```js
+  var data = msg.payload.payload;
 
-msg.payload = {
-    text: data.title + ' ' + data.url
-};
+  msg.payload = {
+      text: data.title + ' ' + data.url
+  };
 
-return msg;
-```
+  return msg;
+  ```
 
 #### Project 4
   - Twitter Sentiment Analysis
