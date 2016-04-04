@@ -204,16 +204,15 @@ npm test # to run all tests
     - Bootstrap
 
 #### Project 2
-bbb
+Adding items to a Trello ToDo list via SMS
 
-- ABC
 - Prerequisites
   - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
   - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
   - [Stamplay](https://stamplay.com/)
   - [Trello](https://trello.com/)
 
-aaa
+Steps
 
 1. NodeRED: Make an HTTP `post /todo`. Test with `http` client.
 2. Twilio: Edit your Phone Number. Change messaging to `post` to the NodeRED HTTP endpoint.
