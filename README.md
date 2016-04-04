@@ -94,6 +94,7 @@ git push
 ```
 
 #### Modern Programming Fundamentals
+  - Demo using C9
   - JavaScript, https://developer.mozilla.org/en-US/docs/Web/JavaScript
   - Node.js, https://nodejs.org/en/
   - Module system
@@ -131,6 +132,11 @@ npm test # to run all tests
 
 #### Backend
   - HTTP, https://www.w3.org/Protocols/rfc2616/rfc2616.txt
+  - Methods: `get, post, put, delete`
+  - Use `http` Linux client on `cnn.com` and others
+  - [https://stamplay.com](https://stamplay.com)
+  - Create Model - Create, Update, Select & Delete
+  - `http VERB https://____.stamplayapp.com/api/cobject/v1/MODEL a=b c=3 d=1/2/2015 e=true`
   - [Express.js](http://expressjs.com/)
   - Performance: CPU Bound, Memory Bound, I/O Bound
   - Async programming with callbacks & promises
@@ -138,36 +144,9 @@ npm test # to run all tests
   - Run sequentially `-c 1`, then run in parallel `-c 1000`
   - `ab -n __ -c __ http://0.0.0.0:8080/`
   - Compare perf to Rails app
-  - Use `rake routes` and browser to demo REST API
-  - Parse a deeply nested JSON structure; [Weather Data](weather.json)
-
-#### Project 2
-  - This project will be done as a pair
-  - Pick a project manager
-  - The PM will go here, https://hub.jazz.net/project/chyld/backend
-  - PM, click the "Fork Project" button
-    - Name the project: backend
-    - Check all the boxes
-    - Click Create
-  - PM, click the "Members" link on the left, add your partner to the repository
-  - Both people can now push and pull the repository
-  - Both, on the project page, click the "Git URL" link
-  - Both, copy that link
-  - Both, open C9 terminal
-  - Both, make sure you're in the `~/workspace` directory
-
-```sh
-git clone <link you copied above>
-cd backend
-npm install
-npm test test/hello.js # this should pass
-npm test test/multiply.js # this will fail, please fix
-npm test # to run all tests
-```
-
-  - Fix the remaining tests
-  - Take turns, with both people fixing the failing tests
-  - Push your completed code up the repository
+  - Build Basic Express App
+    - `req.params`
+    - `req.body`
 
 #### DevOps Services
   - https://hub.jazz.net/
