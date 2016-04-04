@@ -199,7 +199,8 @@ npm test # to run all tests
     - Scalar Variables
     - Array and Object Variables
     - Mustache Syntax
-    - `ng-click`
+    - `$scope`
+    - `ng-click` and `function`
     - Bootstrap
 
 #### Project 2
