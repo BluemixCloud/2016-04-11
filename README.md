@@ -194,6 +194,13 @@ npm test # to run all tests
   - Twitter Bootstrap CSS Framework, http://getbootstrap.com/
   - Highcharts Analytical Charting, http://www.highcharts.com/
   - [Fullstack Template](https://hub.jazz.net/project/chyld/full-stack-template)
+  - Fork and Clone Template
+  - Angular Demo
+    - Scalar Variables
+    - Array and Object Variables
+    - Mustache Syntax
+    - `ng-click`
+    - Bootstrap
 
 #### Project 2
   - Add items to a Trello ToDo List using SMS
