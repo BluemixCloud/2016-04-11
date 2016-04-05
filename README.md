@@ -288,7 +288,92 @@ Steps
   return msg;
   ```
 
+
 #### Project 4
+A user fills out a customer response form. The form gets analyzed by Watson Tone Analyzer with the results streamed in realtime to your slack channel.
+
+- Prerequisites
+  - [WuFoo](http://www.wufoo.com/)
+  - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
+  - [Slack](https://slack.com/)
+  - [Stamplay](https://stamplay.com/)
+  - [Tone Analyzer](https://console.ng.bluemix.net/catalog/services/tone-analyzer/)
+
+Steps
+
+1. Create a form on WuFoo
+2. The form should have two fields, a name field and feedback field
+3. Get the subdomain name and API key for your form
+4. Go to Stamplay, Under Tasks -> Components
+5. Connect to Slack and WuFoo
+6. Make a Code Block called `wufoo`
+
+  ```js
+  module.exports = function(context, cb) {
+    var Request = require('request');
+    var data = context.data;
+    var url = 'http://_____your_node_red.mybluemix.net/wufoo';
+
+    if(data.data){
+  	data = data.data;
+      data = JSON.parse(data.replace(/\n|\r/g, ''));
+    }
+
+    console.log('data:', data);
+
+    Request({url: url, json: true, method: 'post', body: data}, function(e, r, b){
+  	cb(null, { payload : b});
+    });
+  } ;
+  ```
+
+7. Create a Task
+8. WuFoo -> Code Block
+9. Send data to the Code Block
+
+  ```js
+  {
+  "name" : "{{entry.body.Field8}}",
+  "feedback" : "{{entry.body.Field4}}"
+  }
+  ```
+
+10. Create a simple `post /wufoo` endpoint in NodeRED
+11. Fill out the form and look at the deugging info
+12. You may need to change the code in step 9
+13. Go back to NodeRED and add a prep function before the Tone Analyzer
+
+  ```js
+  msg.save = msg.payload;
+  msg.payload = msg.save.feedback;
+  return msg;
+  ```
+
+14. Add a Tone Analyzer node
+15. Tones -> Emotion, Sentences -> True
+16. Add some post processing after the Tone Analyzer, before the data gets sent back to Stamplay
+
+  ```js
+  var tones = msg.response.document_tone.tone_categories[0].tones;
+
+  tones = tones.map(function(t){
+      return t.tone_name + ': ' + (t.score * 100).toFixed(2) + '%';
+  });
+
+  var text = msg.save.name + ' -- ' + tones.join(', ');
+
+  msg.payload = {text: text};
+
+  return msg;
+  ```
+
+17. Add some debugging nodes. Make sure all looks good.
+18. Go back to Stamplay. Add another Task.
+19. Code Block -> Slack
+20. Have your `wufoo` Code Block, upon execution, insert a message into a Slack channel that you choose.
+21. Test everything out
+
+#### Project 5
   - Twitter Sentiment Analysis
   - Prerequisites
     - [NodeRED](https://console.ng.bluemix.net/catalog/starters/node-red-starter/)
@@ -360,19 +445,19 @@ function drawChart(tweets){
 }
 ```
 
-#### Project 5
-  - SMS Famous Movie Quote Service
+#### Project 6
+  - SMS Get Stock Quote
   - Prerequisites
     - [OpenWhisk](https://new-console.ng.bluemix.net/openwhisk/)
     - [Twilio Credentials](https://www.twilio.com/user/account/messaging/dashboard)
     - [Twilio Phone Numbers](https://www.twilio.com/user/account/messaging/phone-numbers)
     - [Twilio API](http://twilio.github.io/twilio-node/)
-    - [Quote Service](https://market.mashape.com/andruxnet/random-famous-quotes)
+    - [Stock Quote Service](http://dev.markitondemand.com/MODApis/)
   - Fork and Clone the [Fullstack Template](https://hub.jazz.net/project/chyld/full-stack-template)
   - A user sends an SMS message to Twilio -> Express -> OpenWhisk -> Quote Service
-  - The service returns a famous movie quote to the user's phone
+  - The service returns a current stock quote to the user's phone
 
-#### Project 6
+#### Project 7
   - Slack Get Current Weather Forecast
   - Prerequisites
     - [OpenWhisk](https://new-console.ng.bluemix.net/openwhisk/)
@@ -385,7 +470,7 @@ function drawChart(tweets){
   - Slack -> Express -> OpenWhisk -> Weather Service
   - The retured weather forcast gets displayed in the slack channel
 
-#### Project 7
+#### Project 8
   - Camera Image Capture & Watson Analyis
   - Prerequisites
     - [Webcam.js](https://pixlcore.com/read/WebcamJS)
@@ -400,7 +485,7 @@ function drawChart(tweets){
   - That data gets stored in a Cloudant database
   - A browser will query the Cloudant database and display all the results
 
-#### Project 8
+#### Project 9
   - Microphone Audio Capture, Speech Translation
   - Prerequisites
     - [Object Storage](https://console.ng.bluemix.net/catalog/services/object-storage/)
