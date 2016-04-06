@@ -204,6 +204,7 @@ npm test # to run all tests
     - `$scope`
     - `ng-click` and `function`
     - Bootstrap
+    - Show Trending Games on Twitch, https://api.twitch.tv/kraken/games/top
 
 #### Project 2
 Adding items to a Trello ToDo list via SMS
