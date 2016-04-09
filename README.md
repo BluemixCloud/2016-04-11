@@ -104,6 +104,8 @@ git push
   - Pair Programming
   - Test Driven Development: [Mocha](https://mochajs.org/) | [Chai](http://chaijs.com/)
 
+![JS Runtime](images/js-runtime.png)
+
 #### Project 1
   - This project will be done as a pair
   - Pick a project manager
