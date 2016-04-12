@@ -148,6 +148,7 @@ npm test # to run all tests
   - Run sequentially `-c 1`, then run in parallel `-c 1000`
   - `ab -n __ -c __ http://0.0.0.0:8080/`
   - Compare perf to Rails app
+  - Create simple index.html page - serve with `http-server`
   - Build Basic Express App
     - `req.params`
     - `req.body`
