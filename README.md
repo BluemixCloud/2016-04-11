@@ -152,6 +152,11 @@ npm test # to run all tests
   - Build Basic Express App
     - `req.params`
     - `req.body`
+  - Have the Express app use the `request` npm module to interface with the Stamplay MongoDB
+    - Create Dog
+    - Update Dog
+    - List Dogs
+    - Delete Dog
 
 #### DevOps Services
   - https://hub.jazz.net/
