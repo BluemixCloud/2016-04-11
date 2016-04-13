@@ -106,7 +106,7 @@ git push
 
 ![JS Runtime](images/js-runtime.png)
 
-#### Project 1
+#### Project 0
   - This project will be done as a pair
   - Pick a project manager
   - The PM will go here, https://hub.jazz.net/project/chyld/fundamentals
@@ -198,6 +198,8 @@ npm test # to run all tests
   - Angular, JavaScript MVC Framework, https://angularjs.org/
   - Twitter Bootstrap CSS Framework, http://getbootstrap.com/
   - Highcharts Analytical Charting, http://www.highcharts.com/
+
+#### Project 1
   - [Fullstack Template](https://hub.jazz.net/project/chyld/full-stack-template)
   - Fork and Clone Template
   - Angular Demo
